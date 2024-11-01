@@ -11,3 +11,8 @@ We'll first create a docker-compose.yaml file to run the jenkins container.
     - Kubernetes Plugin
 4. Set Up Jenkins Agent Nodes:
     - Add agent nodes (other machines or containers) so Jenkins can distribute work across them.
+    FYI:
+*. I ran the jenkins pipelines all in a workspace in my VM host that is hosting the jenkins container on top of it.
+*. I had to add the node to the node manager in the jenkins server (you can follow easily by adding the instance's IP, authontication methid " I used the simple username and password "NO NEED TO COMPLICATE THINGS")
+*. However, I still had to encounter issues with the java compatibility in the jenkins container, so I had to change the java version in the Dockerfile to 8.0.362-amzn which is compatible with the jenkins container (long story short, my VM ran java 11 and the jenkins container ran java 17 so take notice of this)
+*. Make sure to set up the SSH keys for the VM correctly on the jenkins container under the known_hosts file.
