@@ -4,8 +4,9 @@ pipeline {
         stage('Build with Docker') {
             steps {
                 script {
-                    cd ./ecentralized-cicd-platform/containers
-                    sh 'docker build -t my-app .'
+                    sh 'cd ./ecentralized-cicd-platform/containers
+                    
+                    docker build -t my-app .'
                 }
             }
         }
