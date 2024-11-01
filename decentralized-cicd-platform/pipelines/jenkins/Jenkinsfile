@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: '*/main', url: 'https://github.com/rozana10710/decentralized-cicd-platform.git'
-            }
-        }
         stage('Build with Docker') {
             steps {
                 script {
