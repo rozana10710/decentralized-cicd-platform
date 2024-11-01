@@ -9,6 +9,7 @@ pipeline {
         stage('Build with Docker') {
             steps {
                 script {
+                    cd containers
                     sh 'docker build -t my-app .'
                 }
             }
