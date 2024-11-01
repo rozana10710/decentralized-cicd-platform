@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/rozana10710/decentralized-cicd-platform.git'
+            }
+        }
+        stage('Build with Docker') {
+            steps {
+                script {
+                    sh 'docker build -t my-app .'
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh 'docker run my-app pytest tests/'
+                }
+            }
+        }
+    }
+}
